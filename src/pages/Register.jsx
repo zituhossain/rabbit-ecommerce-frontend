@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import login from "../assets/login.webp";
 
-const Login = () => {
+const Register = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -23,8 +24,22 @@ const Login = () => {
           </div>
           <h2 className="text-2xl font-bold text-center mb-6">Hey there!</h2>
           <p className="text-center mb-6">
-            Enter your username and password to login
+            Register your username and password
           </p>
+
+          <div className="mb-4">
+            <label htmlFor="name" className="block mb-2 text-sm font-semibold">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your name"
+              className="w-full p-2 border border-gray-200 rounded-md"
+            />
+          </div>
 
           <div className="mb-4">
             <label htmlFor="email" className="block mb-2 text-sm font-semibold">
@@ -60,12 +75,12 @@ const Login = () => {
             type="submit"
             className="w-full bg-black hover:bg-gray-800 text-white p-2 rounded-lg font-semibold transition"
           >
-            Sign In
+            Sign Up
           </button>
           <p className="mt-6 text-center text-sm">
-            Don&apos;t have an account?
-            <Link to="/register" className="text-blue-500">
-              Register
+            Already have an account?
+            <Link to="/login" className="text-blue-500">
+              Login
             </Link>
           </p>
         </form>
@@ -84,4 +99,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
